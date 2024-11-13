@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const stance = axios.create({
-  baseURL:'http://localhost:3000',
+  baseURL: process.env.React_Base_Url,
 
   
 });
