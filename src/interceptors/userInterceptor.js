@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 
-
 const stance = axios.create({
-  baseURL: process.env.React_Base_Url,
+  baseURL: "https://bookshelf-backend-uyic.onrender.com",
 
   
 });
