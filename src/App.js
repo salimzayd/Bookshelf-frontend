@@ -7,20 +7,23 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await stance.get('/api/books');
-        setBooks(response.data.data); 
-      } catch (error) {
-        console.error("Error fetching books:", error);
-        toast.error("Error fetching books!"); 
-      }
-    };
+useEffect(() => {
+  const fetchBooks = async () => {
+    try {
+      const response = await stance.get('/api/books');
+      setBooks(response.data.data || []); 
+    } catch (error) {
+      console.error("Error fetching books:", error);
+      toast.error("Error fetching books!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchBooks();
-  }, []);
+  fetchBooks();
+}, []);
 
   const addBook = async (newBook) => {
     try {
