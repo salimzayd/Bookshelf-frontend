@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const stance = axios.create({
-  baseURL: process.env.React_Base_Url,
+  baseURL: process.env.REACT_APP_BASE_URL,
 
   
 });
